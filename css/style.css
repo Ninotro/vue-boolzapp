@@ -1,0 +1,311 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+#background {
+    height: 100vh;
+    position: relative;
+    
+    
+}
+
+#background-header {
+    background-color: #009688;
+    height: 50px;
+}
+
+#background-main {
+    background-color: #dbdbd2;
+    height: calc(100vh - 50px);
+
+}
+
+#container-main {
+    background-color: #eaeaea;
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    
+}
+/* PARTE HEADER APP */
+#header-app {
+    
+    height: 15%;
+    width: 100%;
+    background-color: #eaeaea;
+    display: flex;
+}
+
+/* header parte di sinistra */
+#user-info {
+    height: 100%;
+    width: 35%;
+    border-right: 1px solid #b1b1b1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#user-info-sx {
+    margin-left: 20px;
+    align-items: center;
+    height: 100%;
+    display: flex;
+}
+
+ .preview-image-user {
+    margin-right: 3px;
+    background-color: white;
+    border-radius: 999px;
+    height: 50px;
+    width: 50px;
+}
+
+#user-info-sx .preview-image-user img {
+    border-radius: 999px;
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+}
+
+.user-info-dx {
+    display: flex;
+    margin-right: 20px;
+    gap: 20px
+    ;
+    
+    
+
+}
+
+.user-info-dx i {
+    color: #b1b1b1;
+    font-size: 30px;
+    
+   
+}
+
+.name-user {
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+/* header parte destra */
+#contact-active-info {
+    padding-left: 20px;
+    height: 100%;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#contact-active-sx {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.last-access {
+    margin-top: 2px;
+    color: #b1b1b1;
+    font-size: 14px;
+}
+
+.name-contact {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/* PARTE COPRO CENTRALE */
+#chat-main {
+    display: flex;
+    height: 85%;
+    width: 100%;
+}
+
+
+/* MENU DI SINISTRA */
+#menu-sx {
+    width: 35%;
+    height: 100%;
+    background-color: white;
+}
+
+/* Parte notifaction */
+#notification {
+    width: 100%;
+    height: 15%;
+    background-color: #8edafc;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#notification i {
+    font-size: 20px;
+    color:  #8edafc  ;
+    padding: 10px;
+    background-color: white;
+    border-radius: 999px
+}
+
+#notification-text {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+#notification-text a {
+    color: grey;
+}
+
+/* parte found chat */
+#found-chat {
+    padding: 5px 10px;
+    width: 100%;
+    height: 10%;
+    background-color: #fafafa;
+}
+
+#search-bar-contact {
+    width: 99%;
+    height: 95%;
+    background-color: white;
+    display: flex;
+    border: 1px solid #fafafa
+}
+
+#button-search {
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#button-search i {
+    
+    color: #b1b1b1;
+    font-size: 15px;
+
+
+}
+
+#bar-search {
+    width: 80%;
+    height: 100%;
+}
+
+#input-search-contact {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fafafa; 
+    padding-left: 10px;
+    
+}
+
+/* parte proprio delle chat */
+
+#preview-contact-message {
+    width: 100%;
+    height: 75%;
+    overflow-y: auto;
+}
+
+.block-single-chat {
+    width: 100%;
+    height: 80px;
+    border: 1px solid #fafafa;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.grey {
+    background-color: #e9ebeb;
+}
+
+.block-single-chat .preview-image-user {
+  margin-right: 10px;
+}
+
+
+
+
+
+/* MENU DI DESTRA */
+#main-dx {
+    width: 65%;
+    height: 100%;
+    background-color: white
+}
+
+
+/* PARTE DELLA CHAT */
+#principal-interface {
+    width: 100%;
+    height: 85%;
+    background-image: url(../img/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+    object-fit: fill;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    gap: 15px;
+
+}
+
+.text-send {
+    max-width: 300px;
+    
+    padding: 15px;
+    background-color: #d5f9ba;
+    align-self: flex-end;
+    border-radius: 10px;
+}
+
+.text-received {
+    max-width: 300px;
+    
+    padding: 15px;
+    background-color: white;
+    align-self: flex-start;
+    border-radius: 10px;
+}
+
+/* BARRA DI INSERIMENTOTESTO */
+#bartext {
+    width: 100%;
+    height: 15%;
+    background-color: #f3eeea;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 0px 20px;
+}
+
+#bartext i {
+    font-size: 25px;
+    color:#b1b1b1; ;
+}
+
+#input-insert-text{
+    width: 85%;
+    height: 80%;
+    border: 1px solid #fafafa;
+    padding-left: 10px;
+    border-radius: 5px;
+}
+
