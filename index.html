@@ -123,8 +123,23 @@
                                             <div :class="comment.status === 'sent' ? 'text-send' : 'text-received' " v-for="(comment,indexComments) in contact.messages"> 
                                                 <p>{{comment.message }}</p>
                                                 <div class="hour-chat">{{comment.date}}</div> 
+                                                <div>
+                                                    <i class="fa-solid fa-chevron-down" @click="comment.deleteMessage=!comment.deleteMessage">
+                                                        <div class="container-delete-message"  :class="comment.deleteMessage === true ? 'active2' : 'none' ">
+                                                
+                                                            <div>Message info</div>
+                                                            <div  @click="removeClick (indexComments,activeUser)">Deletemessage </div>
+            
+                                                        </div>
+                                                    </i>
+                                                    
+                                                </div>
+                                                
+                                                
 
                                             </div>
+                                            
+                                            
                                         
                                         
                                     </div>
