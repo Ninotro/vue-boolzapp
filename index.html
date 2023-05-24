@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <title>Boolzapp</title>
 </head>
 <body>
     
@@ -49,11 +49,14 @@
                             <div id="contact-active-info">
                                 <div id="contact-active-sx">
                                     <div class="preview-image-user">
-                                        <img src="" alt="">
+                                        <img :src="contacts[activeUser].avatar" alt="">
                                     </div>
                                     <div class="contact-active-info-text">
-                                        <div class="name-contact">Paperino</div>
-                                        <div class="last-access">Ultimo accesso</div>
+                                        <div class="name-contact">{{contacts[activeUser].name}}</div>
+                                        <div class="last-access " v-if="contacts[activeUser].messages" v-if="contacts[activeUser].messages.length">Ultimo accesso 
+                                            {{contacts[activeUser].messages[1].date}}
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="user-info-dx">
@@ -97,30 +100,17 @@
                                 </div>
                                 <!-- Parte dove sono contenute le chat -->
                                 <div id="preview-contact-message">
-                                    <div class="block-single-chat">
+                                    <div class="block-single-chat" v-for="(contact,index) in contacts" @click = "activeUser = index">
                                         <div class="preview-image-user grey">
-                                            <img src="" alt="">
+                                            <img :src="contact.avatar" alt="">
                                         </div>
                                         <div class="contact-active-info-text">
-                                            <div class="name-contact">Paperino</div>
-                                            <div class="last-access">Ultimo messaggio</div>
+                                            <div class="name-contact">{{contact.name}}</div>
+                                            <div class="last-access" v-if="contact.messages.length">ultimo accesso {{contact.messages[contact.messages.length-1].date}} </div>
                                         </div>
+                                        <div class="hour-last-message">12.00</div>
                                     </div>
-                                    <div class="block-single-chat">
-
-                                    </div>
-                                    <div class="block-single-chat">
-
-                                    </div>
-                                    <div class="block-single-chat">
-
-                                    </div>
-                                    <div class="block-single-chat">
-
-                                    </div>
-                                    <div class="block-single-chat">
-
-                                    </div>
+                                    
                                     
                                 </div>
 
@@ -128,14 +118,22 @@
                         <!-- parte chat a destra -->
                             <div id="main-dx">
                                 <div id="principal-interface">
-                                    <div class="text-send">dasdasdasdasdasdas lorem</div>
-                                    <div class="text-received">dasdasdasdasdasdsa lorem</div>
+                                    <div class="conversation" :class="activeUser === index ? 'active' : 'none' "  v-for="(contact,index) in contacts"  >
+                                        
+                                            <div :class="comment.status === 'sent' ? 'text-send' : 'text-received' " v-for="(comment,indexComments) in contact.messages"> 
+                                                <p>{{comment.message }}</p>
+                                                <div class="hour-chat">{{comment.date}}</div> 
 
+                                            </div>
+                                        
+                                        
+                                    </div>
                                 </div>
-                                <div id="bartext">
+                                <div id="bartext"   @keydown.enter="nuovoMessage(activeUser)">
                                     <i class="fa-regular fa-face-smile"></i>
-                                    <input id="input-insert-text" type="text" placeholder="Scrivi un messaggio">
+                                    <input id="input-insert-text" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
                                     <i class="fa-solid fa-microphone"></i>
+                                    
                                     
                                 </div>
                             </div>
