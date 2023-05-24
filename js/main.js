@@ -3,6 +3,7 @@ const {createApp} = Vue;
 createApp ({
     data() {
         return { 
+            input: "",
             orario: new Date().toLocaleTimeString(),
             defaultMessageObject: {},
             dataNow:new Date().toLocaleString(),
@@ -201,13 +202,36 @@ createApp ({
                     status : "receveid",
                     date : this.orario
                 
-            }
+            },
             
-            this.contacts[index].messages.push(this.defaultMessageObject)
- 
+           
+            
+       
+            setTimeout(() => {
+                this.contacts[index].messages.push(this.defaultMessageObject)
+                
+            }, 1000);
+            
+          
+            
             
         },
 
+        
+
+
+        },
+
+        computed : {
+            
+                filteredList() {
+                    return this.contacts.filter(contact => {
+                      return contact.name.toLowerCase().includes(this.input.toLowerCase())
+                    })
+
+
+
+        },
 
 
         
@@ -217,9 +241,9 @@ createApp ({
 
            
            
-        }
+        
 
-    
+        }
 
 
    

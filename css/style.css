@@ -243,6 +243,12 @@
     position: relative;
 }
 
+.block-single-chat:hover {
+    background-color:#dbdbd2;
+    cursor: pointer;
+
+}
+
 .hour-last-message {
     position: absolute;
     top: 5px;

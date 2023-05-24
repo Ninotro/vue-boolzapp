@@ -53,8 +53,8 @@
                                     </div>
                                     <div class="contact-active-info-text">
                                         <div class="name-contact">{{contacts[activeUser].name}}</div>
-                                        <div class="last-access " v-if="contacts[activeUser].messages" v-if="contacts[activeUser].messages.length">Ultimo accesso 
-                                            {{contacts[activeUser].messages[1].date}}
+                                        <div class="last-access " v-if="contacts[activeUser].messages ">Ultimo accesso 
+                                            {{contacts[activeUser].messages[contacts[activeUser].messages.lenght -1]}}
                                         </div>
                                         
                                     </div>
@@ -91,7 +91,7 @@
                                             <i class="fa-solid fa-magnifying-glass"></i>
                                         </div>
                                         <div id="bar-search">
-                                            <input id="input-search-contact" type="text" placeholder="Cerca o inizia una nuova chat">
+                                            <input id="input-search-contact" v-model="input" type="text" placeholder="Cerca o inizia una nuova chat">
 
                                         </div>
 
@@ -100,15 +100,15 @@
                                 </div>
                                 <!-- Parte dove sono contenute le chat -->
                                 <div id="preview-contact-message">
-                                    <div class="block-single-chat" v-for="(contact,index) in contacts" @click = "activeUser = index">
+                                    <div class="block-single-chat"  v-for="(contact,index) in filteredList" @click = "activeUser = index"  >
                                         <div class="preview-image-user grey">
                                             <img :src="contact.avatar" alt="">
                                         </div>
                                         <div class="contact-active-info-text">
                                             <div class="name-contact">{{contact.name}}</div>
-                                            <div class="last-access" v-if="contact.messages.length">ultimo accesso {{contact.messages[contact.messages.length-1].date}} </div>
+                                            <div class="last-access" v-if="contact.messages.length">{{contact.messages[contact.messages.length-1].message}} </div>
                                         </div>
-                                        <div class="hour-last-message">12.00</div>
+                                        <div class="hour-last-message">{{contact.messages[contact.messages.length-1].date}}</div>
                                     </div>
                                     
                                     
@@ -131,7 +131,7 @@
                                 </div>
                                 <div id="bartext"   @keydown.enter="nuovoMessage(activeUser)">
                                     <i class="fa-regular fa-face-smile"></i>
-                                    <input id="input-insert-text" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
+                                    <input id="input-insert-text" type="text" placeholder="Scrivi un messaggio" v-model="newMessage" >
                                     <i class="fa-solid fa-microphone"></i>
                                     
                                     
